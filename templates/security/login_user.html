@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% from "security/_macros.html" import render_field_with_errors, render_field %}
+
+{% block content %}
+<div class="column is-4 is-offset-4">
+    <h3 class="title">Login</h3>
+    <div class="box">
+        {% include "security/_messages.html" %}
+        <form action="{{ url_for_security('login') }}" method="POST" name="login_user_form">
+            {{ login_user_form.hidden_tag() }}
+            <div class="field">
+                <div class="control">
+                    <!-- <input id="email" class="input is-large" type="email" name="email" placeholder="Email address" required autofocus value> -->
+                    {{ render_field_with_errors(login_user_form.email, class="input is-large", placeholder="Email address") }}
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <!-- <input id="password" class="input is-large" type="password" name="password" placeholder="Password" required value> -->
+                    {{ render_field_with_errors(login_user_form.password, class="input is-large", placeholder="Password") }}
+                </div>
+            </div>
+            <div class="field">
+                <label class="checkbox">
+                    <!-- <input id="remember" type="checkbox" name="remember" value="y">
+                    Remember me -->
+                    {{ render_field_with_errors(login_user_form.remember) }}
+                </label>
+            </div>
+            <!-- <button id="submit" class="button is-block is-info is-large is-fullwidth" type="submit" name="submit">Login</button> -->
+            {{ render_field(login_user_form.submit, class="button is-block is-info is-large is-fullwidth") }}
+        </form>
+    </div>
+</div>
+{% endblock %}
