@@ -1,0 +1,10 @@
+WTForms
+Flask
+Flask-SQLAlchemy
+flask-security-too
+Flask-Admin
+Flask-Bcrypt
+Flask-Mail
+python-dotenv
+Flask-Migrate
+bleach
